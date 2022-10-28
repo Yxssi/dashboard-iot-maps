@@ -1,0 +1,23 @@
+{
+  "name": "Random Avatar",
+  "short_name": "RA",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#db4938",
+  "orientation": "portrait-primary",
+  "description": "Application pour visualiser des avatars",
+  "icons": [
+    {
+      "src": "/img/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
