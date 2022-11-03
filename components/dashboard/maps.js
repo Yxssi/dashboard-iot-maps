@@ -10,9 +10,7 @@ import {
 } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { BrowserRouter, Link, Route } from "react-router-dom";
-import { GoogleMapReact } from "google-map-react";
-
+import { Map, Marker } from "pigeon-maps";
 export const Maps = (props) => {
   const theme = useTheme();
 
@@ -103,7 +101,9 @@ export const Maps = (props) => {
             position: "relative",
           }}
         >
-          {/* <Bar data={data} options={options} /> */}
+          <Map height={300} defaultCenter={[20.879, 6.6997]} defaultZoom={7}>
+            <Marker width={50} anchor={[20.879, 6.6997]} />
+          </Map>
         </Box>
       </CardContent>
       <Divider />
