@@ -21,12 +21,11 @@ export const UsersList = ({ users, ...rest }) => {
   const [selecteduserIds, setSelecteduserIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
-
   const handleSelectAll = (event) => {
     let newSelecteduserIds;
 
     if (event.target.checked) {
-      newSelecteduserIds = users.map((user) => user.id);
+      newSelecteduserIds = users.map((user) => user?.id);
     } else {
       newSelecteduserIds = [];
     }
@@ -82,10 +81,8 @@ export const UsersList = ({ users, ...rest }) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell>Name</TableCell>
+                <TableCell>Username</TableCell>
                 <TableCell>Email</TableCell>
-                <TableCell>Location</TableCell>
-                <TableCell>Phone</TableCell>
                 <TableCell>Registration date</TableCell>
               </TableRow>
             </TableHead>
@@ -93,13 +90,13 @@ export const UsersList = ({ users, ...rest }) => {
               {users.slice(0, limit).map((user) => (
                 <TableRow
                   hover
-                  key={user.id}
-                  selected={selecteduserIds.indexOf(user.id) !== -1}
+                  key={user?.id}
+                  selected={selecteduserIds.indexOf(user?.id) !== -1}
                 >
                   <TableCell padding="checkbox">
                     <Checkbox
-                      checked={selecteduserIds.indexOf(user.id) !== -1}
-                      onChange={(event) => handleSelectOne(event, user.id)}
+                      checked={selecteduserIds.indexOf(user?.id) !== -1}
+                      onChange={(event) => handleSelectOne(event, user?.id)}
                       value="true"
                     />
                   </TableCell>
@@ -110,20 +107,16 @@ export const UsersList = ({ users, ...rest }) => {
                         display: "flex",
                       }}
                     >
-                      <Avatar src={user.avatarUrl} sx={{ mr: 2 }}>
-                        {getInitials(user.name)}
+                      <Avatar src={user?.avatarUrl} sx={{ mr: 2 }}>
+                        {getInitials(user?.username)}
                       </Avatar>
                       <Typography color="textPrimary" variant="body1">
-                        {user.name}
+                        {user?.username}
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>{user.email}</TableCell>
-                  <TableCell>
-                    {`${user.address.city}, ${user.address.state}, ${user.address.country}`}
-                  </TableCell>
-                  <TableCell>{user.phone}</TableCell>
-                  <TableCell>{format(user.createdAt, "dd/MM/yyyy")}</TableCell>
+                  <TableCell>{user?.email}</TableCell>
+                  <TableCell>{user?.createdAt}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
