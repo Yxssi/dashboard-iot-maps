@@ -101,7 +101,7 @@ export const Maps = (props) => {
             position: "relative",
           }}
         >
-          <Map height={300} defaultCenter={[20.879, 6.6997]} defaultZoom={7}>
+          <Map height={500} defaultCenter={[50.879, 4.6997]} defaultZoom={7}>
             <Marker width={50} anchor={[20.879, 6.6997]} />
           </Map>
         </Box>
