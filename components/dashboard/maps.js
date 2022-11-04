@@ -92,7 +92,7 @@ export const Maps = (props) => {
   const position = [54.505, -0.09];
   return (
     <Card {...props}>
-      <CardHeader title="Carte de vos objets" />
+      <CardHeader title="Localization" />
       <Divider />
       <CardContent>
         <Box

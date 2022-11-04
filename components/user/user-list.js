@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import {
   Avatar,
   Box,
+  Button,
   Card,
   Checkbox,
   Table,
@@ -16,6 +17,7 @@ import {
   Typography,
 } from "@mui/material";
 import { getInitials } from "../../utils/get-initials";
+import { DeleteRounded, Edit } from "@mui/icons-material";
 
 export const UsersList = ({ users, ...rest }) => {
   const [selecteduserIds, setSelecteduserIds] = useState([]);
@@ -84,6 +86,8 @@ export const UsersList = ({ users, ...rest }) => {
                 <TableCell>Username</TableCell>
                 <TableCell>Email</TableCell>
                 <TableCell>Registration date</TableCell>
+                <TableCell>Edit User</TableCell>
+                <TableCell>Delete User</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -117,6 +121,24 @@ export const UsersList = ({ users, ...rest }) => {
                   </TableCell>
                   <TableCell>{user?.email}</TableCell>
                   <TableCell>{user?.createdAt}</TableCell>
+                  <TableCell>
+                    <Button
+                      color="info"
+                      startIcon={<Edit fontSize="small" />}
+                      variant="contained"
+                    >
+                      Update
+                    </Button>
+                  </TableCell>
+                  <TableCell>
+                    <Button
+                      color="error"
+                      startIcon={<DeleteRounded fontSize="small" />}
+                      variant="contained"
+                    >
+                      Delete
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
